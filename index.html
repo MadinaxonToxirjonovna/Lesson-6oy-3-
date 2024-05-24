@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ismni Saqlash</title>
+    <script>
+        // Sahifa yuklanganda ismni localStorage'dan o'qib olib ko'rsatamiz
+        window.onload = function() {
+            var savedName = localStorage.getItem('name');
+            if (savedName) {
+                document.getElementById('nameDisplay').innerText = savedName;
+            }
+        };
+
+        // Ismni localStorage'ga saqlaydigan funksiya
+        function saveName() {
+            var nameInput = document.getElementById('nameInput').value;
+            localStorage.setItem('name', nameInput);
+            document.getElementById('nameDisplay').innerText = nameInput;
+        }
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+    <input type="text" id="nameInput" placeholder="Ismingizni kiriting">
+    <button onclick="saveName()">Saqlash</button>
+    <p id="nameDisplay"></p>
+    </div>
+</body>
+</html>
